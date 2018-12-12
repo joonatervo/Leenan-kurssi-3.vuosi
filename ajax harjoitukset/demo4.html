@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<title>Ajax-koe</title>
+<meta charset="utf-8">
+<script>
+var pyynto;
+
+function alusta_pyynto()
+{
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+      pyynto=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+      pyynto=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+}
+
+function kasittele_vastaus() //tämä funktio käsittelee vastauksen
+{
+    if (pyynto.readyState==4 && pyynto.status==200)
+    {
+        document.getElementById("vastaus").innerHTML=pyynto.responseText; //tähän sijoitetaan vastaus
+    }
+}
+
+function suorita_pyynto()
+{
+    alusta_pyynto();
+    pyynto.onreadystatechange = kasittele_vastaus;
+    var ktunnus=document.getElementById("ktunnus").value;
+    pyynto.open("GET","demo4.php?ktunnus="+ktunnus,true); //pyyntö php-tiedostolle, muuttuja kysymysmerkkijonossa (GET)
+    pyynto.send(); //lähetetään pyyntö palvelimelle
+}
+</script>
+</head>
+<body>
+<form name='myForm'>
+Käyttäjätunnus: <input type='text' id='ktunnus' /><br/>
+<input type='button' onclick='suorita_pyynto()' value='Näytä käyttäjätunnuksen tietoja'/>
+</form>
+<p id="vastaus"></p>
+</body>
+</html>

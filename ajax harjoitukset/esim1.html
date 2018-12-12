@@ -1,0 +1,24 @@
+<!DOCTYPE HTML> 
+<html> 
+
+<head> 
+  <meta charset="utf-8"> 
+</head> 
+
+<body> 
+
+  <input type="button" id="piilottaja" value="Klikkaa piilottaaksesi tekstin"> 
+  <div id="teksti">Text</div> 
+
+  <script> 
+	//Voi käyttää myös style.display:<br>
+		document.getElementById('piilottaja').onclick = function() {
+		
+			document.getElementById('teksti').hidden = true;
+			
+		}
+		
+  </script> 
+   
+</body> 
+</html>
