@@ -1,0 +1,18 @@
+<!DOCTYPE html> 
+<html> 
+<body> 
+
+<h2>Muunna JSON -muotoinen teksti JavaScript-olioksi</h2> 
+
+<p id="demo"></p> 
+
+<script> 
+
+var myJSON = '{ "nimi":"Juuso", "age":21, "koti":"Kangasala" }'; 
+var myObj = JSON.parse(myJSON); 
+document.getElementById("demo").innerHTML = myObj.nimi; 
+
+</script> 
+
+</body> 
+</html> 

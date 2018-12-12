@@ -1,0 +1,16 @@
+<!DOCTYPE html> 
+<html> 
+<body> 
+
+<h2>Muunna JavaScript olio JSON tekstiksi ja lähetä palvelimelle.</h2> 
+
+<script> 
+
+var myObj = { "nimi":"Leevi", "ika":100, "koti":"Tampere" }; 
+var myJSON = JSON.stringify(myObj); 
+window.location = "jsondemo.php?x=" + myJSON; 
+
+</script> 
+
+</body> 
+</html>
