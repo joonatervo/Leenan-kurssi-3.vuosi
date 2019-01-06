@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+  h1 #{title} 
+
+  form(method='POST' action='') 
+    div.form-group 
+      label(for='title') Tehtävä: 
+      input#title.form-control(type='text', name='title' value=(undefined===task ? '' : task.title)) 
+    button.btn.btn-primary(type='submit') Lisää 
+
+  if errors  
+    ul 
+      for error in errors 
+        li!= error.msg        

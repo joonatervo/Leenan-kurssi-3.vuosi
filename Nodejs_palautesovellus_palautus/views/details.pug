@@ -1,0 +1,17 @@
+extends layout 
+
+block content 
+    h1=title 
+    <hr> 
+        if error 
+            p Virhe!! 
+        else 
+        h1= task.id 
+        - var id=task.id 
+        article  
+            p id: #{task.id}  
+            p title: #{task.title}  
+            p status: #{task.status} 
+             
+            p: a(href='./updatetask/' + id) Muokkaa 
+            p: a(href='./deletetask/' + id) Poista
